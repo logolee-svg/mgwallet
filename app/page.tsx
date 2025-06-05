@@ -36,7 +36,7 @@ export default function WelcomeLanding() {
           justifyContent: 'center'
         }}>
           <img 
-            src="/images/MoneyGram 2022 - RGB_Vert_Full 1.svg" 
+            src="/images/moneygram-logo.svg" 
             alt="MoneyGram Logo"
             style={{
               maxWidth: '100%',
