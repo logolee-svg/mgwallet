@@ -1,15 +1,22 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 export default function WalletHome() {
+  const router = useRouter();
+
   return (
     <div style={{
       maxWidth: '375px',
       margin: '0 auto',
-      minHeight: '100vh',
+      height: '100dvh',
+      maxHeight: '923px',
       padding: '20px',
       display: 'flex',
       flexDirection: 'column',
-      border: '1px solid #ddd'
+      border: '1px solid #ddd',
+      overflow: 'hidden',
+      boxSizing: 'border-box'
     }}>
       
       {/* Header */}
@@ -17,9 +24,10 @@ export default function WalletHome() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '30px',
+        marginBottom: '20px',
         paddingBottom: '15px',
-        borderBottom: '1px solid #eee'
+        borderBottom: '1px solid #eee',
+        flexShrink: 0
       }}>
         <div>
           <h1 style={{
@@ -49,7 +57,7 @@ export default function WalletHome() {
           fontSize: '16px',
           cursor: 'pointer'
         }}
-        onClick={() => window.location.href = '/settings'}
+        onClick={() => router.push('/settings')}
         >
           ⚙️
         </div>
@@ -57,12 +65,13 @@ export default function WalletHome() {
 
       {/* Balance Card */}
       <section style={{
-        padding: '25px',
+        padding: '20px',
         border: '2px solid #333',
         borderRadius: '12px',
-        marginBottom: '30px',
+        marginBottom: '20px',
         textAlign: 'center',
-        backgroundColor: '#f9f9f9'
+        backgroundColor: '#f9f9f9',
+        flexShrink: 0
       }}>
         <p style={{
           fontSize: '14px',
@@ -72,7 +81,7 @@ export default function WalletHome() {
           Your Balance
         </p>
         <div style={{
-          fontSize: '36px',
+          fontSize: '32px',
           fontWeight: 'bold',
           color: '#000',
           marginBottom: '8px'
@@ -89,16 +98,19 @@ export default function WalletHome() {
       </section>
 
       {/* Action Buttons */}
-      <section style={{ marginBottom: '30px' }}>
+      <section style={{ 
+        marginBottom: '20px',
+        flexShrink: 0
+      }}>
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr',
           gap: '12px'
         }}>
           <button 
-            onClick={() => window.location.href = '/cashout'}
+            onClick={() => router.push('/cashout')}
             style={{
-              padding: '20px 10px',
+              padding: '16px 8px',
               border: '1px solid #333',
               borderRadius: '8px',
               backgroundColor: '#fff',
@@ -107,13 +119,13 @@ export default function WalletHome() {
             }}
           >
             <div style={{
-              fontSize: '24px',
-              marginBottom: '8px'
+              fontSize: '20px',
+              marginBottom: '6px'
             }}>
               💵
             </div>
             <div style={{
-              fontSize: '14px',
+              fontSize: '13px',
               fontWeight: 'bold',
               color: '#333'
             }}>
@@ -122,9 +134,9 @@ export default function WalletHome() {
           </button>
 
           <button 
-            onClick={() => window.location.href = '/cashin'}
+            onClick={() => router.push('/cashin')}
             style={{
-              padding: '20px 10px',
+              padding: '16px 8px',
               border: '1px solid #333',
               borderRadius: '8px',
               backgroundColor: '#fff',
@@ -133,13 +145,13 @@ export default function WalletHome() {
             }}
           >
             <div style={{
-              fontSize: '24px',
-              marginBottom: '8px'
+              fontSize: '20px',
+              marginBottom: '6px'
             }}>
               ➕
             </div>
             <div style={{
-              fontSize: '14px',
+              fontSize: '13px',
               fontWeight: 'bold',
               color: '#333'
             }}>
@@ -148,9 +160,9 @@ export default function WalletHome() {
           </button>
 
           <button 
-            onClick={() => window.location.href = '/virtualcard'}
+            onClick={() => router.push('/virtualcard')}
             style={{
-              padding: '20px 10px',
+              padding: '16px 8px',
               border: '1px solid #333',
               borderRadius: '8px',
               backgroundColor: '#fff',
@@ -159,10 +171,10 @@ export default function WalletHome() {
             }}
           >
             <div style={{
-              fontSize: '24px',
-              marginBottom: '8px'
+              fontSize: '20px',
+              marginBottom: '6px'
             }}>
-              💳
+              ��
             </div>
             <div style={{
               fontSize: '12px',
@@ -175,8 +187,13 @@ export default function WalletHome() {
         </div>
       </section>
 
-      {/* Recent Activity */}
-      <section style={{ flex: 1 }}>
+      {/* Recent Activity - Scrollable */}
+      <section style={{ 
+        flex: '1 1 auto',
+        overflowY: 'auto',
+        minHeight: 0,
+        marginBottom: '15px'
+      }}>
         <h3 style={{
           fontSize: '16px',
           fontWeight: 'bold',
@@ -253,12 +270,12 @@ export default function WalletHome() {
         </div>
       </section>
 
-      {/* Trust Badge */}
+      {/* Trust Badge - Always visible */}
       <footer style={{
         textAlign: 'center',
-        marginTop: '20px',
         paddingTop: '15px',
-        borderTop: '1px solid #eee'
+        borderTop: '1px solid #eee',
+        flexShrink: 0
       }}>
         <p style={{
           fontSize: '12px',

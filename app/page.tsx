@@ -1,15 +1,22 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 export default function WelcomeLanding() {
+  const router = useRouter();
+
   return (
     <div style={{
       maxWidth: '375px',
       margin: '0 auto',
-      minHeight: '100vh',
+      height: '100dvh', // Use dynamic viewport height for mobile
+      maxHeight: '923px', // iPhone 14/15 Pro max height
       padding: '20px',
       display: 'flex',
       flexDirection: 'column',
-      border: '1px solid #ddd' // Wireframe border
+      border: '1px solid #ddd',
+      overflow: 'hidden', // Prevent content overflow
+      boxSizing: 'border-box'
     }}>
       
       {/* Header with MoneyGram Logo */}
@@ -17,7 +24,8 @@ export default function WelcomeLanding() {
         textAlign: 'center',
         paddingBottom: '20px',
         borderBottom: '1px solid #eee',
-        marginBottom: '30px'
+        marginBottom: '20px', // Reduced from 30px
+        flexShrink: 0 // Prevent header from shrinking
       }}>
         <div style={{
           width: '120px',
@@ -35,7 +43,10 @@ export default function WelcomeLanding() {
       </header>
 
       {/* Welcome Message */}
-      <section style={{ marginBottom: '30px' }}>
+      <section style={{ 
+        marginBottom: '20px', // Reduced from 30px
+        flexShrink: 0 // Prevent from shrinking
+      }}>
         <div style={{
           border: '1px solid #ddd',
           padding: '20px',
@@ -67,8 +78,13 @@ export default function WelcomeLanding() {
         </div>
       </section>
 
-      {/* Why Use This Wallet */}
-      <section style={{ marginBottom: '40px' }}>
+      {/* Why Use This Wallet - Scrollable if needed */}
+      <section style={{ 
+        marginBottom: '20px', // Reduced from 40px
+        flex: '1 1 auto', // Allow to grow/shrink as needed
+        overflowY: 'auto', // Allow scrolling if content is too long
+        minHeight: 0 // Allow flexbox to shrink below content size
+      }}>
         <h3 style={{
           fontSize: '16px',
           fontWeight: 'bold',
@@ -150,10 +166,13 @@ export default function WelcomeLanding() {
         </div>
       </section>
 
-      {/* CTA Button */}
-      <div style={{ marginTop: 'auto', paddingTop: '20px' }}>
+      {/* CTA Button - Always visible at bottom */}
+      <div style={{ 
+        paddingTop: '20px',
+        flexShrink: 0 // Always preserve button space
+      }}>
         <button 
-          onClick={() => window.location.href = '/onboarding'}
+          onClick={() => router.push('/onboarding')}
           style={{
             width: '100%',
             padding: '16px',
@@ -172,7 +191,8 @@ export default function WelcomeLanding() {
           textAlign: 'center',
           fontSize: '12px',
           color: '#666',
-          marginTop: '15px'
+          marginTop: '15px',
+          marginBottom: 0 // Remove bottom margin
         }}>
           MoneyGram Trusted Worldwide
         </p>

@@ -1,0 +1,8 @@
+{
+  "/not-found": "app/not-found.js",
+  "/wallet/page": "app/wallet/page.js",
+  "/support/page": "app/support/page.js",
+  "/cashout/page": "app/cashout/page.js",
+  "/cashout/pickup/page": "app/cashout/pickup/page.js",
+  "/cashin/page": "app/cashin/page.js"
+}
