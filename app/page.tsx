@@ -30,15 +30,20 @@ export default function WelcomeLanding() {
         <div style={{
           width: '120px',
           height: '40px',
-          border: '1px solid #ccc',
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '12px',
-          color: '#666'
+          justifyContent: 'center'
         }}>
-          MoneyGram Logo
+          <img 
+            src="/images/MoneyGram 2022 - RGB_Vert_Full 1.svg" 
+            alt="MoneyGram Logo"
+            style={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain'
+            }}
+          />
         </div>
       </header>
 
